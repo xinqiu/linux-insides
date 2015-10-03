@@ -98,7 +98,7 @@ SECTIONS {
 }
 ```
 
-Now the BIOS has started to work. After initializing and checking the hardware, it needs to find a bootable device. A boot order is stored in the BIOS configuration. The function of boot order is to control which devices the kernel attempts to boot. In the case of attempting to boot a hard drive, the BIOS tries to find a boot sector. On hard drives partitioned with an MBR partition layout, the boot sector is stored in the first 446 bytes of the first sector (512 bytes). The final two bytes of the first sector are `0x55` and `0xaa` which signals the BIOS that the device is bootable. For example:
+现在BIOS已经开始工作。初始化和监测硬件之后，它需要找到一个可引导设备。引导顺序储存在BIOS配置中。引导顺序的功能是去控制内核尝试引导的设备。在尝试引导一个硬盘驱动的情况下，BIOS会试着去找一个引导扇区。在MBR分区布局的硬盘分区中，引导扇区储存在第一个446字节的第一个扇区(512 字节)。第一扇区的最后两个字节是 `0x55` 和  `0xaa` ，标志着BIOS可以引导该设备。例如：
 
 ```assembly
 ;
