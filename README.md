@@ -18,14 +18,14 @@ Linux Insides
 |├1.3||未开始|
 |├1.4||未开始|
 |└1.5||未开始|
-|Initialization||未开始|
+|Initialization|[@lijiangsheng1](https://github.com/lijiangsheng1)|正在进行|
 |Interrupts||未开始|
 |System calls||未开始|
 |Timers and time management||未开始|
-|Memory management||未开始|
+|Memory management|[@choleraehyq](http://cholerae.com)|正在进行|
 |Concepts||未开始|
 |DataStructures||正在进行|
-|├9.1|[@mudongliang](https://github.com/mudongliang)|正在进行|
+|├9.1|[@oska874](http://github.com/oska874) [@mudongliang](https://github.com/mudongliang)|正在进行|
 |└9.2|[Alick Guo](https://github.com/a1ickgu0)|正在进行|
 |Theory||正在进行|
 |├10.1|[@mudongliang](https://github.com/mudongliang)|正在进行|
@@ -65,3 +65,4 @@ Linux Insides
 ##LICENSE
 
 Licensed [BY-NC-SA Creative Commons](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+

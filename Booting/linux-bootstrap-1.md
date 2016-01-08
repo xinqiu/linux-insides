@@ -59,20 +59,20 @@ PhysicalAddress = Segment * 16 + Offset
 
 我们知道实模式和内存地址。回到复位后的寄存器值。
 
-`CS` 寄存器包含两个部分：可见段选择器（visible segment selector）和隐藏的基址（hidden base address）。我们知道预定义`CS` 基址（CS base）和 `IP` 值，逻辑地址将会是：
+`CS` register consists of two parts: the visible segment selector and hidden base address. We know predefined `CS` base and `IP` value, logical address will be:
 
 ```
 0xffff0000:0xfff0
 ```
 
-以这种方式开始地址是由基址加EIP寄存器中的值形成的：
+In this way starting address formed by adding the base address to the value in the EIP register:
 
 ```python
 >>> 0xffff0000 + 0xfff0
 '0xfffffff0'
 ```
 
-我们取得 `0xfffffff0` ,这是4GB - 16字节。这个点是 [复位向量](http://en.wikipedia.org/wiki/Reset_vector)。这是CPU预期的复位后执行的第一条指令的内存位置。它包含一个通常指向BIOS入口点的[跳转](http://en.wikipedia.org/wiki/JMP_%28x86_instruction%29)指令。举个例子，如果我们查看 [coreboot](http://www.coreboot.org/) 的源码，将会看到：
+We get `0xfffffff0` which is 4GB - 16 bytes. This point is the [Reset vector](http://en.wikipedia.org/wiki/Reset_vector). This is the memory location at which CPU expects to find the first instruction to execute after reset. It contains a [jump](http://en.wikipedia.org/wiki/JMP_%28x86_instruction%29) instruction which usually points to the BIOS entry point. For example, if we look in [coreboot](http://www.coreboot.org/) source code, we will see it:
 
 ```assembly
 	.section ".reset"
@@ -84,7 +84,7 @@ reset_vector:
 	...
 ```
 
-可以看到这里的跳转指令 [opcode](http://ref.x86asm.net/coder32.html#xE9) - 0xe9 到 `_start - ( . + 2)` 的地址。并且能看到 `复位(reset)` 部分为16字节，起始于 `0xfffffff0`：
+We can see here the jump instruction [opcode](http://ref.x86asm.net/coder32.html#xE9) - 0xe9 to the address `_start - ( . + 2)`. And we can see that `reset` section is 16 bytes and starts at `0xfffffff0`:
 
 ```
 SECTIONS {
@@ -98,7 +98,7 @@ SECTIONS {
 }
 ```
 
-现在BIOS已经开始工作。初始化和监测硬件之后，它需要找到一个可引导设备。引导顺序储存在BIOS配置中。引导顺序的功能是去控制内核尝试引导的设备。在尝试引导一个硬盘驱动的情况下，BIOS会试着去找一个引导扇区。在MBR分区布局的硬盘分区中，引导扇区储存在第一个446字节的第一个扇区(512 字节)。第一扇区的最后两个字节是 `0x55` 和  `0xaa` ，标志着BIOS可以引导该设备。例如：
+Now the BIOS has started to work. After initializing and checking the hardware, it needs to find a bootable device. A boot order is stored in the BIOS configuration. The function of boot order is to control which devices the kernel attempts to boot. In the case of attempting to boot a hard drive, the BIOS tries to find a boot sector. On hard drives partitioned with an MBR partition layout, the boot sector is stored in the first 446 bytes of the first sector (512 bytes). The final two bytes of the first sector are `0x55` and `0xaa` which signals the BIOS that the device is bootable. For example:
 
 ```assembly
 ;
