@@ -43,7 +43,7 @@ Linux Insides
 * 开始翻译你认领的章节。
 * 完成翻译之后，关闭 issue 。
 
-翻译前建议看 `TRANSLATION_NOTES.md` 翻译约定，有任何问题或建议也请开 issue 讨论。
+翻译前建议看[TRANSLATION_NOTES.md](https://github.com/xinqiu/linux-insides/blob/master/TRANSLATION_NOTES.md) 翻译约定，有任何问题或建议也请开 issue 讨论。
 
 
 
