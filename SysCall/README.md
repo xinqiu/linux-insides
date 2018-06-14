@@ -1,8 +1,10 @@
-# System calls
+# 系统调用
 
-这一章节描述linux内核中“系统调用”的相关概念。
+本章描述 Linux 内核中的系统调用概念。
 
-* [系统调用概念简介](http://0xax.gitbooks.io/linux-insides/content/SysCall/syscall-1.html) - 这一部分介绍linux内核中系统调用的概念。
-* [linux内核如何处理系统调用](http://0xax.gitbooks.io/linux-insides/content/SysCall/syscall-2.html) - 这一部分介绍linux内核如何处理用户空间应用发起的系统调用。
-* [vsyscall 与 vDSO](http://0xax.gitbooks.io/linux-insides/content/SysCall/syscall-2.html) - 这一部分描述 `vsyscall` 和 `vDSO` 相关概念.
-* [Linux 内核如何运行程序](http://0xax.gitbooks.io/linux-insides/content/SysCall/syscall-3.html) - 这一部分描述程序的启动过程.
+* [系统调用概念简介](linux-syscall-1.md) - 介绍 Linux 内核中的系统调用概念
+* [Linux 内核如何处理系统调用](linux-syscall-2.md) - 介绍 Linux 内核如何处理来自于用户空间应用的系统调用。
+* [vsyscall and vDSO](linux-syscall-3.md) - 介绍 `vsyscall` 和 `vDSO` 概念。
+* [Linux 内核如何运行程序](linux-syscall-4.md) - 介绍一个程序的启动过程。
+* [open 系统调用的实现](linux-syscall-5.md) - 介绍 open 系统调用的实现。
+* [Linux 资源限制](linux-syscall-6.md) - 介绍 `getrlimit/setrlimit` 的实现。
